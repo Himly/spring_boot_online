@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 1.引入 Spring Boot 提供的父工程坐标 -->
+    <!-- 目的：解决依赖版本冲突的问题,spring boot默认指定了兼容的依赖版本 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!-- 位置放在 spring-boot-starter-parent 工程下面 -->
+    <groupId>com.itheima</groupId>
+    <artifactId>day01_01_spring_boot_demo1</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 2.设置 JDK 版本 -->
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!-- 3.添加 web 启动器 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <!--因为是 web 项目,所以这里引入 web 启动器-->
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+</project>

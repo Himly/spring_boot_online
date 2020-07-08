@@ -1,0 +1,20 @@
+user:
+  username: tom
+  password: 666666
+  age: 20
+  girlNames:
+    - 希琳娜依高
+    - 王艺瑾
+    - 陈卓旋
+    - 郑乃馨
+  boyList:
+    - 黄子韬
+    - 毛不易
+    - 鹿晗
+  userList:
+    - username: jack
+      password: 123
+      age: 18
+    - username: lucy
+      password: 456
+      age: 19
