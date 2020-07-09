@@ -46,7 +46,7 @@ public class UserConfig {
 
     // 获取数据的方式三：@ConfigurationProperties 注解
     @Bean // 创建User对象并交给spring的ioc容器,User对象中的值从配置文件中获取
-    @ConfigurationProperties("user") // user.username 等的前缀 user
+    @ConfigurationProperties(prefix = "user") // user.username 等的前缀 user
     public User getUser() {
         User user = new User();
         return user;

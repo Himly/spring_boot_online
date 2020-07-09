@@ -4,11 +4,15 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 // user实体类对应的数据库表名
 // @TableName("t_user") // 因为 application.yml 中设置了 table-prefix: t_(表名前缀),所以 这个可以省略
 public class User {

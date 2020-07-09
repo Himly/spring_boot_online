@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- 网页使用的语言 -->
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- 指定字符集 -->
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<div class="container">
+    <center><h3>员工查看页面</h3></center>
+    <div class="from-group">
+        <label>姓名：</label>
+        <!--th:text 是 thymeleaf 的一个标签-->
+        <span th:text="${user.username}">张三</span>
+    </div>
+    <div class="from-group">
+        <label>年龄：</label>
+        <!--th:text 是 thymeleaf 的一个标签-->
+        <span th:text="${user.age}">30</span>
+    </div>
+</div>
+</body>
+</html>

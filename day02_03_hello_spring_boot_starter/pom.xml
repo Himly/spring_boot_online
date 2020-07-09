@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.itheima</groupId>
+    <artifactId>day02_03_hello_spring_boot_starter</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- day02_03_hello_spring_boot_starter这个启动器主要是具体业务的管理,可能有一个项目或多个项目,这里做一个统一的管理 -->
+    <dependencies>
+        <dependency>
+            <groupId>com.itheima</groupId>
+            <artifactId>day02_03_hello_spring_boot_autoconfigure</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

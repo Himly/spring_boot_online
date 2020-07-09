@@ -1,0 +1,4 @@
+# Auto Configure
+# 第一行固定写法, 第二行这个是我们写的配置类的类名全路径 这样spring就能扫描到了
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.itheima.hellospringboot.config.HelloAutoConfiguration
