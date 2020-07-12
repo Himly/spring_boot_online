@@ -1,0 +1,14 @@
+server:
+  port: 1112
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    service-url:
+      # 一般默认区域就够用了,企业中可以自定义区域
+      defaultZone: http://127.0.0.1:1111/eureka,http://127.0.0.1:1113/eureka
+    # 注册中心的职责是维护服务实例,不需要去检索服务
+    fetch-registry: true
+    # 默认设置下,注册中心会将自己作为客户端来尝试注册自己,设置为false代表不向注册中心注册自己
+    register-with-eureka: true

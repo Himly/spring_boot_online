@@ -1,0 +1,6 @@
+server:
+  port: 9001
+spring:
+  application:
+    # 当前应用的服务名称(也叫服务id)
+    name: hello_consumer
