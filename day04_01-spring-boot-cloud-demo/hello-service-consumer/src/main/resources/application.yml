@@ -1,0 +1,40 @@
+server:
+  port: 9001
+spring:
+  application:
+    # 当前应用的服务名称(也叫服务id)
+    name: hello-service-consumer
+# 配置注册中心 eureka 的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1111/eureka
+#hello-service-provider:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+hystrix:
+  command:
+    default:
+      # 断路器
+      circuitBreaker:
+        # 设置 hystrix 断路器触发熔断的最小请求次数,默认20
+        requestVolumeThreshold: 10
+        # 设置 hystrix 断路器从打开状态到半开状态的休眠时间,默认5000毫秒
+        sleepWindowInMilliseconds: 10000
+        # 设置 hystrix 断路器触发熔断的失败请求最小占比,默认50%
+        errorThresholdPercentage: 50
+      execution:
+        isolation:
+          thread:
+            # 设置 hystrix 服务降级命令执行的默认超时时长为1秒(默认为1秒)
+            timeoutInMilliseconds: 1000
+#ribbon:
+#  ReadTimeout: 2000 # 数据通信超时时长
+#  ConnectTimeout: 500 # 连接超时时长
+#  OkToRetryOnAllOperations: false # 是否对所有的请求方式都重试
+#  MaxAutoRetriesNextServer: 1 # 重试多少次服务（实例）
+#  MaxAutoRetries: 0 # 当前服务实例的重试次数
+feign:
+  hystrix:
+    # Feign 客户端开启 Hystrix
+    enabled: true

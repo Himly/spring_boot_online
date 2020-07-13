@@ -1,0 +1,59 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: api-gateway
+# 配置注册中心 eureka 的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1111/eureka
+# 方式1:传统路由配置
+#zuul:
+#  routes:
+#    # 自定义服务
+#    hello-api:
+#      # 指定服务的路径: ? 匹配单个字符(/hello-api/a); * 匹配多个字符(/hello-api/abc); ** 匹配多个字符且支持多级目录(/hello/a/bc)
+#      path: /hello-api/**
+#      # 指定具体的服务地址
+#      url: http://localhost:8001/
+# 方式2:面向服务路由设置
+#zuul:
+#  routes:
+#    hello-api: # 自定义服务
+#      path: /hello-api/** # 请求路径
+#      serviceId: hello-service-provider # 服务id
+# 方式3:面向服务简化的路由配置(路由名称和服务名称一样)
+#zuul:
+#  routes:
+#    hello-service-provider: /hello-service-provider/** #这里是映射路径
+# 方式4:面向服务默认的路由规则(不写)
+# 因为Zuul指定默认情况下，一切服务的映射路径就是服务名本身。
+
+# 添加前缀
+zuul:
+  routes:
+    hello-service-provider: /hello-service-provider/**
+  prefix: /api
+ribbon:
+  ReadTimeout: 2000 # 数据通信超时时长
+  ConnectTimeout: 500 # 连接超时时长
+  OkToRetryOnAllOperations: false # 是否对所有的请求方式都重试
+  MaxAutoRetriesNextServer: 1 # 重试多少次服务
+  MaxAutoRetries: 0 # 当前服务器的重试次数
+hystrix:
+  command:
+    default:
+      # 断路器
+      circuitBreaker:
+        # 设置 hystrix 断路器触发熔断的最小请求次数,默认20
+        requestVolumeThreshold: 10
+        # 设置 hystrix 断路器从打开状态到半开状态的休眠时间,默认5000毫秒
+        sleepWindowInMilliseconds: 10000
+        # 设置 hystrix 断路器触发熔断的失败请求最小占比,默认50%
+        errorThresholdPercentage: 50
+      execution:
+        isolation:
+          thread:
+            # 设置 hystrix 服务降级命令执行的默认超时时长为1秒(默认为1秒)
+            timeoutInMilliseconds: 3000

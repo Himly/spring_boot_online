@@ -1,0 +1,20 @@
+server:
+  port: 1111
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    # 注册中心提供服务的地址
+    service-url:
+      # 一般默认区域就够用了,企业中可以自定义区域
+      defaultZone: http://127.0.0.1:${server.port}/eureka
+    # 注册中心的职责是维护服务实例,不需要去检索服务
+    fetch-registry: false
+    # 默认设置下,注册中心会将自己作为客户端来尝试注册自己,设置为false代表不向注册中心注册自己
+    register-with-eureka: false
+  server:
+    # 每60秒钟剔除失效的服务,默认为60秒
+    eviction-interval-timer-in-ms: 60000
+    # 关闭自我保护机制(本地开发时关闭,以确保注册中心可以将不可用的实例正确剔除)
+    enable-self-preservation: false
