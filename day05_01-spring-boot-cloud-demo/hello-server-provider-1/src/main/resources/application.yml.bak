@@ -1,0 +1,22 @@
+server:
+  port: 8001
+spring:
+  application:
+    # 当前应用的服务名称(也叫服务id)
+    name: hello-service-provider
+# 配置注册中心 eureka 的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1111/eureka
+  instance:
+    # 更倾向于使用ip,而不是host名
+    prefer-ip-address: true
+    # 服务失效时间,单位秒,默认为90秒
+    lease-expiration-duration-in-seconds: 90
+    # 服务续约任务的调用间隔时间,单位秒,默认30秒
+    lease-renewal-interval-in-seconds: 30
+#logging:
+#  level:
+#    # 日志级别设置为 debug
+#    org.springframwork: debug

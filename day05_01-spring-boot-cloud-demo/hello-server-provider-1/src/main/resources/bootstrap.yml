@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    config:
+      # 配置本地(中心)地址
+      uri: http://localhost:8080
+      # 指定配置的 name, 跟 git 上的配置文件最前面部分(application)匹配
+      name: hello
+      # 指定环境,对应 git 上的 profile 部分
+      profile: dev
+      # 指定分支,对应 git 上的分支
+      label: dev
+server:
+  port: 8001

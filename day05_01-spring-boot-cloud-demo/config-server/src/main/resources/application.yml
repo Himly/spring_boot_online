@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # 配置 git 远程仓库地址
+          uri: https://gitee.com/himly520/spring-cloud-config.git
+          # 指定配置文件下载路径
+          basedir: d:/temp
