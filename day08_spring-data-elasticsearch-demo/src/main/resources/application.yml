@@ -1,0 +1,14 @@
+# 做集群时的配置
+#spring:
+#  data:
+#    elasticsearch:
+#      cluster-name: leyou-elastic
+#      cluster-nodes: 127.0.0.1:9301,127.0.0.1:9302,127.0.0.1:9303
+
+# 练习时的配置
+spring:
+  data:
+    elasticsearch:
+      cluster-name: my-application # 集群名称,如果修改了集群名字,一定要重新配置
+      # SpringDataElasticsearch底层使用TransportClient,访问tcp端口
+      cluster-nodes: 127.0.0.1:9300 # 集群节点
