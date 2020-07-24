@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+    <!-- 引入vue.js -->
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    用户名：<input type="text" id="username" v-model="username"> <br>
+    密码：<input type="text" id="password" v-model="password"> <br>
+    <button type="button" @click="fun1()">显示用户信息</button> <br> <hr width="25%" align="left">
+
+    用户名：<input type="text" id="name" v-model="user.name"> <br>
+    密码：<input type="text" id="pwd" v-model="user.pwd"> <br>
+    年龄：<input type="text" id="age" v-model="user.age"> <br>
+    <button type="button" @click="fun2()">显示用户信息</button>
+</div>
+</body>
+</html>
+<!-- js脚本 -->
+<script type="text/javascript">
+    <!--创建Vue对象-->
+    let app = new Vue({
+        el: "#app", // 挂载
+        data: { // 数据变量
+            username: 'tom',
+            password: '123456',
+            user: {
+                name: 'jack',
+                pwd: 34567,
+                age: 20
+            }
+        },
+        methods: { // 自定义方法
+            fun1: function () {
+                alert(this.username + '---' + this.password);
+            },
+            fun2: function () {
+                alert(this.user.name + '---' + this.user.pwd + '---' + this.user.age);
+            }
+        }
+    });
+</script>

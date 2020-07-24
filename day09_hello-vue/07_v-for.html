@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>07_v-for</title>
+    <!-- 引入vue.js -->
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <!--<li v-for="str in arr">内容：{{str}}</li>-->
+        <li v-for="(str,i) in arr">内容：{{str + '---' + i}}</li>
+    </ul>
+    <table border="1px">
+        <tr v-for="user in pp">
+            <td>{{user.name}}</td>
+            <td>{{user.pwd}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+    </table>
+    <ul>
+        <li v-for="(p,k) in person">{{k + " : " + p}}</li>
+    </ul>
+    <table>
+        <tr v-for="user in pp">
+            <td v-for="(u,k) in user">{{k + " : " + u}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+<!-- js脚本 -->
+<script type="text/javascript">
+    <!--创建Vue对象-->
+    let app = new Vue({
+        el: "#app", // 挂载
+        data: { // 数据变量
+            arr: ['aa', 'bb', 'cc', 'dd'],
+            pp: [
+                {name: "jack", pwd: 123, age: 16},
+                {name: "lucy", pwd: 456, age: 18},
+                {name: "tom", pwd: 789, age: 20}
+            ],
+            person: {name: "jerry", pwd: 123123, age: 19}
+        },
+        methods: { // 自定义方法
+
+        }
+    });
+    function f() {
+        
+    }
+</script>

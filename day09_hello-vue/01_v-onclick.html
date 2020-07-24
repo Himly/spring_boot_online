@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>01_v-onclick</title>
+    <!-- 引入vue.js -->
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--插值表达式-->
+    {{message}}
+    <input type="button" value="点我呀" v-on:click="fun1()" />
+    <input type="button" value="还原" v-on:click="fun2()" /> |
+    <input type="button" value="缩写点我呀" @click="fun1()" />
+    <input type="button" value="缩写还原" @click="fun2()" />
+</div>
+</body>
+</html>
+<!-- js脚本 -->
+<script type="text/javascript">
+    // 声明Vue对象
+    let app = new Vue({
+        el: "#app", // 挂载
+        data: { // 数据变量
+            message: 'Hello World ~ Vue !!'
+        },
+        methods: { // 自定义方法
+            fun1: function () {
+                this.message = '我就点了,咋地!';
+            },
+            fun2: function () {
+                this.message = 'Hello World ~ Vue !!';
+            }
+        }
+    });
+</script>

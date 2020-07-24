@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver # 使用最新的 mysql 连接驱动
+    # 设置时区为东八区(北京时间): &serverTimezone=GMT%2B8
+    url: jdbc:mysql:///spring_boot?characterEncoding=utf-8&useUnicode=true&useSSL=false&serverTimezone=GMT%2B8 # 省略了 127.0.0.1:3306
+    username: root
+    password: root

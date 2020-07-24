@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>03_onmouseover</title>
+    <!-- 引入vue.js -->
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div @mouseover="fun2()">
+        <!--<textarea v-on:mouseover.stop>这是文本域</textarea>-->
+        <textarea v-on:mouseover="fun1()">这是文本域</textarea>
+    </div>
+    谷歌：<input id="search" type="text" @keydown.enter="fun3()"/> <br>
+    <table border="1">
+        <tr>
+            <td>message</td>
+            <td>{{message}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+<!-- js脚本 -->
+<script type="text/javascript">
+    // 创建Vue对象
+    let app = new Vue({
+        el: "#app", // 挂载
+        data: { // 数据变量
+            message: "信息"
+        },
+        methods: { // 自定义方法
+            fun1: function () {
+                alert("文本域!!");
+                // 阻止事件传播
+                event.stopPropagation();
+            },
+            fun2: function () {
+                alert("div!!");
+            },
+            fun3: function () {
+                // alert("搜索成功!");
+                this.message = document.getElementById("search").value;
+            }
+        }
+    });
+</script>

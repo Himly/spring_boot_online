@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>hello-vue</title>
+    <!-- 引入vue.js -->
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--插值表达式-->
+    {{message}} <br>
+    <!--除了可以放变量外,还可以放其他表达式(三元、正则),基本运算,可以写方法-->
+    基本运算：{{3+6}} <br>
+    三元：{{flag>3 ? '大于' : '不大于'}} <br>
+    正则：{{tempStr.replace(/,/g, '')}} <br>
+    方法：{{showData()}}
+</div>
+</body>
+</html>
+<!-- js的脚本 -->
+<script type="text/javascript">
+    // 声明Vue对象
+    let app = new Vue({
+        // 挂载,el及element,代表渲染的页面元素
+        el: "#app",
+        // 数据变量
+        data: {
+            message: 'hello vue...',
+            flag: 5,
+            tempStr: '5,794,849'
+        },
+        // 自定义方法
+        methods: {
+            showData: function () {
+                return 'sd';
+            }
+        }
+    });
+</script>
